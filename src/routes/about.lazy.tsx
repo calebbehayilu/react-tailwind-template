@@ -9,7 +9,8 @@ const about = () => {
   const { count } = useCounter();
   return (
     <div className="flex flex-col items-center justify-center gap-5 pt-16 ">
-      {count}
+      <h1 className="font-bold text-4xl">About</h1>
+      <h1 className="font-semibold text-2xl">Count - {count}</h1>
     </div>
   );
 };

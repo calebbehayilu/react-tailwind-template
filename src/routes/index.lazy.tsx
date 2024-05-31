@@ -30,7 +30,7 @@ function App() {
                   key={link.name}
                   className="p-2 border-2 rounded-lg text-2xl text-slate-400 font-medium"
                 >
-                  {link.name}
+                  <a href={link.link}>{link.name}</a>
                 </li>
               ))}
             </ul>
