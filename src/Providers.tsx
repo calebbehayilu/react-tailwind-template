@@ -1,10 +1,11 @@
 import React, { FC } from "react";
+import { ThemeProvider } from "./theme-provider";
 
 interface Children {
   children: React.ReactNode;
 }
 const Providers: FC<Children> = ({ children }) => {
-  return <div>{children}</div>;
+  return <ThemeProvider defaultTheme="dark">{children}</ThemeProvider>;
 };
 
 export default Providers;

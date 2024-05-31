@@ -1,6 +1,9 @@
 import { Button } from "./components/ui/button";
 import vite from "./../public/vite.svg";
 import react from "./assets/react.svg";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+import { useCounter } from "./store/counter";
 function App() {
   const linkList = [
     {
@@ -44,11 +47,23 @@ function App() {
       link: "https://heroicons.com/",
     },
   ];
+  const { count, increase } = useCounter();
 
   return (
     <>
       <div className="">
-        <div className="flex flex-col items-center justify-center gap-5 h-screen">
+        <nav className="relative flex justify-between px-10 py-3 border border-b-accent ">
+          <h1 className="font-bold text-3xl">React⚡️</h1>
+          <ul>
+            <li>
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </li>
+          </ul>
+        </nav>
+        <div className="flex flex-col items-center justify-center gap-5 pt-16 ">
           <div className="flex gap-x-24">
             <img src={vite} alt="" className="size-32" />
             <img src={react} alt="" className="size-32" />
@@ -67,6 +82,16 @@ function App() {
                 </li>
               ))}
             </ul>
+          </div>
+          <div>
+            <Button
+              variant={"outline"}
+              size={"lg"}
+              className="  font-medium w-24"
+              onClick={() => increase()}
+            >
+              Count - {count}
+            </Button>
           </div>
         </div>
       </div>
